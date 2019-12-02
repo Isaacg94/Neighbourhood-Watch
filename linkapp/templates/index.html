@@ -11,38 +11,41 @@
             <img src="https://fontmeme.com/permalink/191202/6121727221ffd6093829725fab07df09.png" alt="thrasher-font"
                 border="0" style="padding: 5%;" class="img-fluid">
             <h2 style="font-family: 'Alegreya Sans SC', sans-serif; color: #fff;">Discover Your Neighborhood</h2>
-            <h1 style="font-family: 'Alegreya Sans SC', sans-serif; color: #fff;">A Private Network for Your Neighborhood. </h1>
+            <h1 style="font-family: 'Alegreya Sans SC', sans-serif; color: #fff;">A Private Network for Your
+                Neighborhood. </h1>
         </div>
-        
+
     </div>
 
 
 </div>
 
 <div class="container text-center">
-        <h1 style="font-family: 'Alegreya Sans SC', sans-serif;">Neighborhoods</h1>
+    <h1 style="font-family: 'Alegreya Sans SC', sans-serif;">Neighborhoods</h1>
 
     <!-- Looping through images   -->
 
 
     <div class="row">
-       
-        
+
+
         {% for neighborhood in neighborhoods %}
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
             <div class="portfolio-wrap ">
                 <div class="portfolio-wrap hovereffect">
-                    <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%">
+                    <a href="{%url 'hood' neighborhood.id%}" style="width:100%">
                         <img src="{{neighborhood.neighborhood_pic.cdn_url}}" href="" class="img-fluid" alt="Image">
                         <div class="overlay">
-                            <div class="text">Join Neighborhood</div>
+                            <div class="text">{{ neighborhood.neighborhood_name }}</div>
+                            <div class="loco text-white"><strong>{{ neighborhood.neighborhood_location }}</strong></div>
                         </div>
                     </a>
+
                 </div>
             </div>
         </div>
         <!-- Modal -->
-        
+
         {% empty %}
     </div>
 

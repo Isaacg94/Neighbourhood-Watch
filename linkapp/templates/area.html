@@ -1,0 +1,92 @@
+{%extends 'base.html'%}
+{% load static%}
+
+{% block content %}
+{{block.super}}
+
+
+<div class="container-fluid"
+    style="background-image: url({{ neighborhood.neighborhood_pic.cdn_url }}),linear-gradient(330deg, rgba(0, 21, 34, 0.57) 0%, rgba(52, 37, 54, 0.55) 100%); background-blend-mode: overlay; height: 500px; background-repeat:no-repeat; background-position: top; background-size: cover; background-position: center; margin-bottom: 4%; ">
+    <div class="container header text-center">
+        <div class="logo" style="padding-top: 10%;">
+            <!-- <img src="https://fontmeme.com/permalink/191202/6121727221ffd6093829725fab07df09.png" alt="thrasher-font"
+                border="0" style="padding: 5%;" class="img-fluid"> -->
+            <h2 style="font-family: 'Cinzel Decorative', cursive; color: #fff; font-size: 75px;">
+                {{ neighborhood.neighborhood_name }}</h2>
+            <h2 style="font-family: 'Alatsi', sans-serif; color: #fff;">{{neighborhood.neighborhood_location}}</h2>
+            <div class="text-white">
+                {% for member in neighborhood.occupants_count.all%}
+                <p>{{member.username}}</p>
+                {%endfor%}
+            </div>
+            <a href="{%url 'join' neighborhood.id%}" class="btn btn-dark rounded rounded-pill rounded-pill"><strong>Join</strong></a>
+        </div>
+
+    </div>
+    <div class="row pt-5 text-center">
+        <div class="col-md-4">
+            <img src="{%static 'images/icons8-police-96 (1).png'%}" alt="">
+            <p style="font-family: 'Alatsi', sans-serif; color: #fff;">{{ neighborhood.police_contact }}</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{%static 'images/icons8-hospital-sign-96 (1).png'%}" alt="">
+            <p style="font-family: 'Alatsi', sans-serif; color: #fff;">{{ neighborhood.health_contact }}</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{%static 'images/icons8-crowd-100 (1).png'%}" alt="">
+            <p style="font-family: 'Alatsi', sans-serif; color: #fff;"></p>
+        </div>
+    </div>
+
+
+</div>
+<div class="container">
+    <ul>
+        {%for bs in neighborhood.businesses.all%}
+        <li>{{bs.bs_name}}</li>
+        {%endfor%}
+    </ul>
+</div>
+
+<div class="container text-center">
+    <h1 style="font-family: 'Alegreya Sans SC', sans-serif;">Neighborhoods</h1>
+
+    <!-- Looping through images   -->
+
+
+    <div class="row">
+
+
+        {% for neighborhood in neighborhoods %}
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+            <div class="portfolio-wrap ">
+                <div class="portfolio-wrap hovereffect">
+                    <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%">
+                        <img src="{{neighborhood.neighborhood_pic.cdn_url}}" href="" class="img-fluid" alt="Image">
+                        <div class="overlay">
+                            <div class="text">Join Neighborhood</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
+        {% empty %}
+    </div>
+
+
+    <div class="row">
+        <h2 class="text-center">Neighborhoods Unavailable</h2>
+    </div>
+    {% endfor %}
+
+    <!-- Image details modal -->
+
+
+
+</div>
+
+
+
+{% endblock %}

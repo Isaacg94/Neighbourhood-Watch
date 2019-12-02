@@ -10,7 +10,7 @@ class Neighborhood(models.Model):
     neighborhood_name = models.CharField(max_length=30)
     neighborhood_location = models.CharField(max_length=30)
     neighborhood_pic = ImageField(blank=True, manual_crop="1920x1080")
-    occupants_count = models.IntegerField(null=True)
+    occupants_count = models.ManyToManyField(User)
     police_contact = PhoneNumberField()
     health_contact = PhoneNumberField()
 
@@ -21,7 +21,6 @@ class Neighborhood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
-    neighborhood = models.ManyToManyField(Neighborhood)
     email = models.EmailField()
     profile_pic = ImageField(manual_crop ='1080x1080')
     bio = HTMLField()
@@ -45,6 +44,11 @@ class Business(models.Model):
         businesses = cls.objects.all()
         return businesses
 
+    @classmethod
+    def get_hood_bs(cls, neighborhood):
+        hood_bs = Business.objects.filter(neighborhood__pk = neighborhood)
+        return hood_bs
+
 class Post(models.Model):
     title = models.CharField(max_length=30)
     description = HTMLField(max_length=70)
@@ -62,6 +66,11 @@ class Post(models.Model):
     def get_all_posts(cls):
         posts = cls.objects.all()
         return posts
+
+    @classmethod
+    def get_hood_posts(cls, neighborhood):
+        hood_posts = Business.objects.filter(neighborhood__pk = neighborhood)
+        return hood_posts
 
 
 
