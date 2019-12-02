@@ -8,21 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% if title %}
-    <title>LinkApp - {{title}}</title>
+    <title>My Block - {{title}}</title>
     {% else %}
-    <title> LinkApp </title>
+    <title> My Block </title>
     {% endif %}
 
     {% block styles %}
     {% bootstrap_css %}
+
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400i&display=swap" rel="stylesheet">
+
     {% endblock %}
 </head>
 
 <body>
     {% include "navbar.html" %}
     {% block content %}
-    <h1>A Private Network for Your Neighborhood. </h1>
+    
     {%endblock%}
 
 

@@ -14,6 +14,11 @@ class Neighborhood(models.Model):
     police_contact = PhoneNumberField()
     health_contact = PhoneNumberField()
 
+    @classmethod
+    def get_all_neighborhoods(cls):
+        neighborhoods = cls.objects.all()
+        return neighborhoods
+
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
     neighborhood = models.ManyToManyField(Neighborhood)
@@ -29,6 +34,17 @@ class Business(models.Model):
     bs_email = models.EmailField()
     bs_pic = ImageField(manual_crop ='1920x1080')
 
+    def save_bs(self):
+        self.save()
+
+    def delete_bs(self):
+        self.delete()
+
+    @classmethod
+    def get_all_bs(cls):
+        businesses = cls.objects.all()
+        return businesses
+
 class Post(models.Model):
     title = models.CharField(max_length=30)
     description = HTMLField(max_length=70)
@@ -36,7 +52,16 @@ class Post(models.Model):
     post_location = models.ForeignKey(Neighborhood, related_name="posts", on_delete=models.CASCADE)
     post_pic = ImageField(manual_crop ='1920x1080')
 
+    def save_post(self):
+        self.save()
 
+    def delete_post(self):
+        self.delete()
+
+    @classmethod
+    def get_all_posts(cls):
+        posts = cls.objects.all()
+        return posts
 
 
 
