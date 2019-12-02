@@ -49,6 +49,11 @@ class Business(models.Model):
         hood_bs = Business.objects.filter(neighborhood__pk = neighborhood)
         return hood_bs
 
+    @classmethod
+    def get_profile_bs(cls, profile):
+        profile_bs = Business.objects.filter(user__pk = user)
+        return profile_bs
+
 class Post(models.Model):
     title = models.CharField(max_length=30)
     description = HTMLField(max_length=70)
@@ -69,8 +74,13 @@ class Post(models.Model):
 
     @classmethod
     def get_hood_posts(cls, neighborhood):
-        hood_posts = Business.objects.filter(neighborhood__pk = neighborhood)
+        hood_posts = Post.objects.filter(neighborhood__pk = neighborhood)
         return hood_posts
+
+    @classmethod
+    def get_profile_posts(cls, profile):
+        profile_posts = Post.objects.filter(user__pk = user)
+        return profile_posts
 
 
 

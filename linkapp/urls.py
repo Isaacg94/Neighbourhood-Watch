@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns=[
     url('^$',views.index,name='index'),
     url(r'^neighborhood/(\d+)',views.my_area,name ='hood'),
-     url(r'^neighborhood/(\d+)/join/$',views.join,name ='join')
+    url(r'^neighborhood/(\d+)/join/$',views.join,name ='join'),
+    url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
