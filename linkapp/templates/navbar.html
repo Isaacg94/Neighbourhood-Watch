@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-menu" style="cursor:pointer" onclick="">
+            <div class="navbar-menu" style="cursor:pointer" onclick="openNav()">
                 <img src="https://img.icons8.com/material-sharp/40/000000/menu.png">
             </div>
             <div class="nav navbar-nav navbar-right" style="flex-direction: row;">
@@ -42,6 +43,26 @@
         </div>
     </nav>
 
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% if user.is_authenticated %}
+        {% if user.profile.profile_pic %}
+        <a href="#"><img src="{{user.profile.profile_pic.cdn_url}}" class="img-fluid" alt=""
+            style="object-fit: cover; object-position: 100% 0; width: 150px; height: 150px; border-radius: 50%; margin: auto; box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);"></a>
+        {% else %}
+        <div class="card-custom-avatar-profile">
+            <a href="#"><img class="img-fluid" src="{%static 'images/icon8.png'%}" alt="Avatar"></a>
+        </div>
+        {% endif %}
+        <a href="#" style="color: green;">Submit</a>
+        <a href="{%url 'index'%}">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Change Password</a>
+        <a href="#">Logout</a>
+        {% else %}
+        <a href="#">Login</a>
+        {% endif %}
+    </div>
 
 </body>
 
