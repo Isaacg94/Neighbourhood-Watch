@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http  import HttpResponse,Http404
 from django.shortcuts import render,redirect
 from .models import Neighborhood,Profile,Business,Post
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -14,9 +16,14 @@ def profile(request, username):
     profile = User.objects.get(username=username)
     users = User.objects.get(username=username)
 
+    try :
+        profile_details = Profile.get_by_id(profile.id)
+    except:
+        profile_details = Profile.filter_by_id(profile.id)
+
     businesses = Business.get_profile_bs(profile.id)
     posts = Post.get_profile_posts(profile.id)
-    return render(request, 'profile.html', {'title':title,'profile':profile,'posts':posts, 'businesses':businesses})
+    return render(request, 'profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'posts':posts, 'businesses':businesses})
 
 
 def my_area(request, id):
