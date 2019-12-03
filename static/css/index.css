@@ -92,3 +92,50 @@ div.col-xs-6.col-sm-6.col-md-4.col-lg-4 {
   position: relative;
   text-align: center;
 }
+#content-details {
+  font-size: 12px;
+}
+
+.article-content h1 {
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+#article-row {
+  background-color: #ffffff;
+  padding: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2%;
+  
+  position: relative;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+#article-row:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+
+}
+
+@media screen and (min-width:768px) {
+  
+}
+
+@media only screen and (max-width: 766px) {
+  .c_items {
+    display: none;
+  }
+  #n_name {
+    font-size: 35px !important;
+    padding-top: 45%;
+  }
+  #hm_h {
+    font-size: 20px !important;
+    padding-top: 5%;
+  }
+  #homelogo {
+    padding-top: 45%;
+  }
+}

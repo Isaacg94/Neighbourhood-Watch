@@ -56,7 +56,7 @@
         {% endif %}
         <a href="#">Submit</a>
         <a href="{%url 'index'%}">Home</a>
-        <a href="#">Profile</a>
+        <a href="{% url 'profile' username=user %}">Profile</a>
         <a href="/accounts/password/change">Change Password</a>
         <a href="/logout">Logout</a>
         {% else %}
