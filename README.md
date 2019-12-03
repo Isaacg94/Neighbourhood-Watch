@@ -1,4 +1,4 @@
-<img src="https://fontmeme.com/permalink/191202/6121727221ffd6093829725fab07df09.png" alt="thrasher-font"
+<img src="https://fontmeme.com/permalink/191203/e6384428c94c2588cf834334b4192550.png" alt="thrasher-font"
                 border="0" style="padding: 5%;" class="img-fluid">
 ### Author
  **[Isaac Gichuru.](https://github.com/Isaacg94) 30/11/2019.**
