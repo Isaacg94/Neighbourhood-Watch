@@ -17,7 +17,7 @@ A Private Network for Your Neighborhood.
 * Users can use the navigation bar to navigate to the home page, profile page as well, login as well as logout.
 
 
-![alt text](static/images/screencapture-127-0-0-1-8000-neighborhood-3-2019-12-03-19_29_25.png)
+![alt text](static/images/screencapture-127-0-0-1-8000-2019-12-03-19_28_04.png)
 
 ![alt text](static/images/screencapture-127-0-0-1-8000-neighborhood-3-2019-12-03-19_29_25.png)
 
