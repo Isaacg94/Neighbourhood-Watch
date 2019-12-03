@@ -8,25 +8,11 @@ from django.contrib.auth.models import User
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def index(request):
     neighborhoods = Neighborhood.get_all_neighborhoods()
     return render(request, 'index.html',{"neighborhoods":neighborhoods})
 
-@login_required(login_url='/accounts/login/')
-def profile(request, username):
-    title = "Profile"
-    profile = User.objects.get(username=username)
-    users = User.objects.get(username=username)
-
-    try :
-        profile_details = Profile.get_by_id(profile.id)
-    except:
-        profile_details = Profile.filter_by_id(profile.id)
-
-    businesses = Business.get_profile_bs(profile.id)
-    posts = Post.get_profile_posts(profile.id)
-    return render(request, 'profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'posts':posts, 'businesses':businesses})
 
 
 def my_area(request, id):

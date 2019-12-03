@@ -15,9 +15,9 @@
                 {{ neighborhood.neighborhood_name }}</h2>
             <h2 style="font-family: 'Alatsi', sans-serif; color: #fff;">{{neighborhood.neighborhood_location}}</h2>
             <div class="text-white">
-                <!-- {% for member in neighborhood.occupants_count.all%}
+                {% for member in neighborhood.occupants_count.all%}
                 <p>{{member.username}}</p>
-                {%endfor%} -->
+                {%endfor%}
             </div>
             <a href="{%url 'join' neighborhood.id%}" class="btn btn-dark rounded rounded-pill rounded-pill"><strong>Join</strong></a>
         </div>
@@ -41,7 +41,7 @@
 
 </div>
 <div class="container">
-        <h1 style="font-family: 'Alegreya Sans SC', sans-serif;">Businesses</h1>
+        <h1 style="font-family: 'Alegreya Sans SC', sans-serif;">zusinesses</h1>
     <ul>
         {%for bs in neighborhood.businesses.all%}
         <li>{{bs.bs_name}}</li>
@@ -76,7 +76,7 @@
 
 
     <div class="row">
-        <h2 class="text-center">Posts Unavailable</h2>
+        <h2 class="text-center">Neighborhoods Unavailable</h2>
     </div>
     {% endfor %}
 

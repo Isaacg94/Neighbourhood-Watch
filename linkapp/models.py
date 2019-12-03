@@ -10,7 +10,7 @@ class Neighborhood(models.Model):
     neighborhood_name = models.CharField(max_length=30)
     neighborhood_location = models.CharField(max_length=30)
     neighborhood_pic = ImageField(blank=True, manual_crop="1920x1080")
-    occupants_count = models.ManyToManyField(User)
+    occupants_count = models.IntegerField(null=True)
     police_contact = PhoneNumberField()
     health_contact = PhoneNumberField()
 
@@ -21,20 +21,10 @@ class Neighborhood(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
+    neighborhood = models.ManyToManyField(Neighborhood)
     email = models.EmailField()
     profile_pic = ImageField(manual_crop ='1080x1080')
     bio = HTMLField()
-
-    @classmethod
-    def get_by_id(cls, id):
-        profile = Profile.objects.get(user = id)
-        return profile
-
-
-    @classmethod
-    def filter_by_id(cls, id):
-        profile = Profile.objects.filter(user = id).first()
-        return 
 
 class Business(models.Model):
     bs_name = models.CharField(max_length=30)
@@ -55,16 +45,6 @@ class Business(models.Model):
         businesses = cls.objects.all()
         return businesses
 
-    @classmethod
-    def get_hood_bs(cls, neighborhood):
-        hood_bs = Business.objects.filter(neighborhood__pk = neighborhood)
-        return hood_bs
-
-    @classmethod
-    def get_profile_bs(cls, profile):
-        profile_bs = Business.objects.filter(user__pk = user)
-        return profile_bs
-
 class Post(models.Model):
     title = models.CharField(max_length=30)
     description = HTMLField(max_length=70)
@@ -82,16 +62,6 @@ class Post(models.Model):
     def get_all_posts(cls):
         posts = cls.objects.all()
         return posts
-
-    @classmethod
-    def get_hood_posts(cls, neighborhood):
-        hood_posts = Post.objects.filter(neighborhood__pk = neighborhood)
-        return hood_posts
-
-    @classmethod
-    def get_profile_posts(cls, profile):
-        profile_posts = Post.objects.filter(user__pk = user)
-        return profile_posts
 
 
 
