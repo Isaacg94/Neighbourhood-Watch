@@ -46,3 +46,5 @@ def new_business(request):
     else:
         form = NewBusinessForm()
     return render(request, 'new_business.html', {"form": form})
+
+    
