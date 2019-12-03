@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from .models import Neighborhood,Profile,Business,Post
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from .forms import ProfileForm, NewBusinessForm, NewPostForm
 
 
 
@@ -31,3 +31,18 @@ def join(request, id):
     neighborhood.occupants_count.add(current_user)
     neighborhood.save()
     return redirect("hood")
+
+@login_required(login_url='/accounts/login/')
+def new_business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewBusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.profile = current_user
+            post.save()
+        return redirect('index')
+
+    else:
+        form = NewBusinessForm()
+    return render(request, 'new_business.html', {"form": form})
