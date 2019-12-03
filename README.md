@@ -12,9 +12,10 @@ A Private Network for Your Neighborhood.
 ## Features
 * Users create an account.
 * Users can log in to application and view available Neighborhoods once they have an account.
-* Users can navigate to and view a neighborhood and it's details including business posts as well as an option to join.
+* Users can navigate to, and view a neighborhood as well as its details, including business posts and an option to join.
 * Users can create business posts.
-* Users can use the navigation bar to navigate to the home page, profile page as well, login as well as logout.
+* Users can view their profile page.
+* Users can use the side navigation bar to navigate to the home page, profile page as well, login and logout.
 
 
 ![alt text](static/images/screencapture-127-0-0-1-8000-2019-12-03-19_28_04.png)
@@ -27,17 +28,17 @@ A Private Network for Your Neighborhood.
 
 
 
-<!-- # Specifications
+# Specifications
 
 
 ## BDD
 | Behavior            | Input                         | Output                        |
 | ------------------- | ----------------------------- | ----------------------------- |
 | Users can sign up for an account | Input credentials in the registration form then click Sign Up | Users are prompted to login into their account |
-| Users can view projects posted by other users | Click on a specific project's review button | When clicked, users are navigated to another page where they can post a review of the project |
-| Users can view the full live site of a posted project | Click on the 'Go to Site' button | Users are directed to the live site of the posted project |
-| Users can view and edit their profiles | Click on profile in the side navigation | Users are directed to their profile page with their posted projects displayed as well as their profile information and an option to edit it |
-| Users can search projects | Click on the search icon on the navigation bar, type in a given project-title and press Enter | User will be able to view projects with that title | -->
+| Users can log into their account | Input the correct credentials of an existing account in the login form | Once verified, users are navigated to the home page where they can view available neighborhoods |
+| Users can view the details of a specific neighborhood | Click on a given neighborhood | Users are directed to the neighborhood's page where its details, business posts as well as an option to Join, are displayed |
+| Users can view their profiles | Click on Profile in the side navigation | Users are directed to their profile page with their profile information displayed |
+| Users can create business posts | Click on the Post Business option in the side navigation bar | User will be navigated to a new page with a form to create a new post |
 
 
 ## Setup/Installation Requirements
